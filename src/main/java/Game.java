@@ -8,16 +8,27 @@ public class Game {
     }
 
     public int score() {
-        int roleIndex = 0;
-        for (int frameIndex = 0; frameIndex < 10; frameIndex++) {
-            if(rolls[roleIndex] + rolls[roleIndex+1] == 10) { // spare
-                totalScore += 10 + rolls[roleIndex+2];
-                roleIndex+=2;
+        int frameIndex = 0;
+        for (int frame = 0; frame < 10; frame++) {
+            if(isSpare(frameIndex)) {
+                totalScore += calculateSpareBonus(frameIndex);
             }  else {
-                totalScore += rolls[roleIndex] + rolls[roleIndex + 1];
-                roleIndex+=2;
+                totalScore += calculateBallsInFrame(frameIndex);
             }
+            frameIndex+=2;
         }
         return totalScore;
+    }
+
+    private int calculateBallsInFrame(int frameIndex) {
+        return rolls[frameIndex] + rolls[frameIndex + 1];
+    }
+
+    private int calculateSpareBonus(int frameIndex) {
+        return 10 + rolls[frameIndex + 2];
+    }
+
+    private boolean isSpare(int roleIndex) {
+        return calculateBallsInFrame(roleIndex) == 10;
     }
 }
