@@ -7,6 +7,9 @@ public class GameTest {
     @Test
     void testGutterGame() {
         Game game = new Game();
-
+        for (int i = 0; i < 20; i++) {
+            game.roll(0);
+        }
+        Assertions.assertEquals(0, game.score());
     }
 }
