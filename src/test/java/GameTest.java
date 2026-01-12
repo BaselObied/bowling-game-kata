@@ -18,9 +18,18 @@ public class GameTest {
     }
 
     @Test
-    void TestAllOnes() {
+    void testAllOnes() {
         rollWithPins(20, 1);
         Assertions.assertEquals(20, game.score());
+    }
+
+    @Test
+    void testOneSpare() {
+        game.roll(5);
+        game.roll(5); //spare
+        game.roll(4);
+        rollWithPins(17, 0);
+        Assertions.assertEquals(18, game.score());
     }
 
     private void rollWithPins(int rollsTime, int pins) {
