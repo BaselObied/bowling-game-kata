@@ -33,11 +33,15 @@ public class GameTest {
 
     @Test
     void testOneStrike() {
-        game.roll(10);//strike
+        rollStrike();
         game.roll(4);
         game.roll(3);
         rollWithPins(17, 0);
         Assertions.assertEquals(24, game.score());
+    }
+
+    private void rollStrike() {
+        game.roll(10);
     }
 
     private void rollSpare() {
