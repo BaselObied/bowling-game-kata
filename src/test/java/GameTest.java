@@ -13,17 +13,19 @@ public class GameTest {
 
     @Test
     void testGutterGame() {
-        for (int i = 0; i < 20; i++) {
-            game.roll(0);
-        }
+        rollWithPins(20, 0);
         Assertions.assertEquals(0, game.score());
     }
 
     @Test
     void TestAllOnes() {
-        for (int i = 0; i < 20; i++) {
-            game.roll(1);
-        }
+        rollWithPins(20, 1);
         Assertions.assertEquals(20, game.score());
+    }
+
+    private void rollWithPins(int rollsTime, int pins) {
+        for (int i = 0; i < rollsTime; i++) {
+            game.roll(pins);
+        }
     }
 }
