@@ -25,11 +25,15 @@ public class GameTest {
 
     @Test
     void testOneSpare() {
-        game.roll(5);
-        game.roll(5); //spare
+        rollSpare();
         game.roll(4);
         rollWithPins(17, 0);
         Assertions.assertEquals(18, game.score());
+    }
+
+    private void rollSpare() {
+        game.roll(5);
+        game.roll(5);
     }
 
     private void rollWithPins(int rollsTime, int pins) {
