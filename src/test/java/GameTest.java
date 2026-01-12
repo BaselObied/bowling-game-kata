@@ -40,6 +40,12 @@ public class GameTest {
         Assertions.assertEquals(24, game.score());
     }
 
+    @Test
+    void testPerfectGame() {
+        rollWithPins(12, 10);
+        Assertions.assertEquals(300, game.score());
+    }
+
     private void rollStrike() {
         game.roll(10);
     }

@@ -1,6 +1,6 @@
 public class Game {
     private int totalScore = 0;
-    private int [] rolls = new int[21];
+    private final int [] rolls = new int[21];
     private int currentRole = 0;
 
     public void roll(int pins) {
